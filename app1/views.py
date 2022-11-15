@@ -64,7 +64,7 @@ def index(request):
         cont=False
     alldata=items_data.objects.all()
 
-    paginator=Paginator(alldata,1)
+    paginator=Paginator(alldata,10)
     page=request.GET.get('page')
     try:
         alldata=paginator.page(page)
