@@ -1,0 +1,28 @@
+<div class="">
+  <span class="">
+    {% if page.has_previous %}
+    <button class="btn btn-primary">
+      <a
+        style="text-decoration: none; color: inherit"
+        href="?page={{page.previous_page_number}}"
+      >
+        Previous
+      </a>
+    </button>
+    {%endif%}
+    <span class="">
+      <button class="btn btn-primary">
+        Page {{page.number}} of {{page.paginator.num_pages}}.
+      </button>
+    </span>
+    {%if page.has_next%}
+    <button class="btn btn-primary">
+      <a
+        style="text-decoration: none; color: inherit"
+        href="?page={{page.next_page_number}}"
+        >Next</a
+      >
+    </button>
+    {% endif %}
+  </span>
+</div>

@@ -1,0 +1,1 @@
+web: gunicorn HardikP.wsgi --log-file -
