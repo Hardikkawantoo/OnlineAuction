@@ -1,0 +1,80 @@
+{% extends 'base copy 2.html' %} {% block body %}
+
+<div class="container" style="margin-left: 180px" id="cards">
+  <h2 style="text-align: left">Products</h2>
+
+  <!-- <div class="row" style="margin-bottom: 100px">
+    {%for items in ItemD%}
+    <div class="card mb-3" style="max-width: 70rem">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img
+            src="{{items.upload.url}}"
+            class="card-img-top min-vw-auto"
+            alt="..."
+            data-bs-toggle=""
+            href="#"
+            role="card"
+            style="width: 240px; height: 240px"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <p class="card-text">
+              name: {{items.i_name}} {{items.cost}} {{items.Timing}}
+            </p>
+            <p class="card-text">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {%endfor%}-->
+  {%for items in ItemD%}
+  <div class="card mb-3" style="max-width: 70rem">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img
+          src="{{items.Upload.url}}"
+          class="card-img-top min-vw-auto"
+          alt="..."
+          data-bs-toggle=""
+          href="#"
+          role="card"
+          style="width: 240px; height: 240px"
+        />
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <p class="card-text">name: {{items.Name}}</p>
+          
+          {%if items.timing|date:"Y-m-d h:i:s" > Ctime %}
+          <p class="card-text">Status: Live till {{items.timing|timeuntil}}</p>
+          {% elif items.timing is None %}
+          <p class="card-text">Status: Coming Soon </p>
+         
+          {% else %}
+          <p class="card-text">Status: Closed </p>
+          <p class="card-text">Winner: {{items.Top_Bidder}}</p>
+          {%endif%}
+
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <p class="card-text">increase price:</p>
+          {%if items.timing|date:"Y-m-d h:i:s" > Ctime%}
+          <p class="card-text">Current Bid: {{items.Cost}} <h4>Increase Bid <a href="update/{{ items.id }}"><i class="fa fa-plus">&#xf067;</i></a></h4></p>
+          {% else %}
+          <p class="card-text">Winning Bid: {{items.Cost}} </p>
+          {%endif%}
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endfor%}
+</div>
+
+{% endblock body %}

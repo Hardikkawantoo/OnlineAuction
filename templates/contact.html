@@ -1,0 +1,8 @@
+{% extends "base copy 2.html" %} {% load static %} {% block body%}
+<h1 style="text-align: center">Item registration!</h1>
+<h2>{{texts}}</h2>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Upload</button>
+</form>
+{% endblock body%}
