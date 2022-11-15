@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'HardikP.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd2tk3akmro6u52',
+        'USER': 'uilcmlitxlgfts',
+        'PASSWORD': 'bcecef9e900181ea8477a7445792d7b056f69fae50ee994009eb43be6a7ccd81',
+        'PORT':'5432',
+        'HOST': 'ec2-52-23-131-232.compute-1.amazonaws.com',
     }
 }
 
